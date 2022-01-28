@@ -1,4 +1,4 @@
-local buildImage(source_image, target-tag) = {
+local buildImage(source_image, target-tag, makedeb_version) = {
   name: "build-image-" + target_tag,
   kind: "pipeline",
   type: "docker",
@@ -11,6 +11,7 @@ local buildImage(source_image, target-tag) = {
       proget_api_key: {from_secret: "proget_api_key"},
       source_image: source_image,
       target_tag: target_tag,
+      makedeb_version: makedeb_version,
     },
     commands: [
       "apk add --no-cache bash",
@@ -21,7 +22,7 @@ local buildImage(source_image, target-tag) = {
 
 
 [
-  buildImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-alpha", "utests-alpha"),
-  buildImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-beta", "utests-beta"),
-  buildImage("proget.hunterwittenborn.com/docker/makedeb/makedeb", "utests")
+  buildImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-alpha", "utests", "alpha"),
+  buildImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-beta", "utests", "beta"),
+  buildImage("proget.hunterwittenborn.com/docker/makedeb/makedeb", "utests", "stable")
 ]

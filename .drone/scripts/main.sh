@@ -12,7 +12,7 @@ done
 # Log in to ProGet server.
 configure_docker
 
-image="ci-image:${target_tag}"
+image="ci-image:${target_tag}-${makedeb_version}"
 
 target_dockerfile="Dockerfile.${target_tag}"
 
