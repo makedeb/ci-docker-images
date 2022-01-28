@@ -1,5 +1,5 @@
-local buildCIImage(source_image, target_tag, makedeb_version) = {
-  name: "build-ci-image-" + target_tag + "-" + makedeb_version,
+local buildCIImage(source_image, makedeb_version) = {
+  name: "build-ci-image-" + makedeb_version,
   kind: "pipeline",
   type: "docker",
   volumes: [{name: "docker", host: {path: "/var/run/docker.sock"}}],
@@ -10,7 +10,6 @@ local buildCIImage(source_image, target_tag, makedeb_version) = {
     environment: {
       proget_api_key: {from_secret: "proget_api_key"},
       source_image: source_image,
-      target_tag: target_tag,
       makedeb_version: makedeb_version,
     },
     commands: [
@@ -22,7 +21,8 @@ local buildCIImage(source_image, target_tag, makedeb_version) = {
 
 
 [
-  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-alpha:ubuntu-latest", "utests", "alpha"),
-  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-beta:ubuntu-latest", "utests", "beta"),
-  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb:ubuntu-latest", "utests", "stable")
+  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-alpha:ubuntu-focal", "alpha"),
+  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-beta:ubuntu-focal", "beta"),
+  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb:ubuntu-focal", "stable")
+
 ]

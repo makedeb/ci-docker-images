@@ -12,9 +12,9 @@ done
 # Log in to ProGet server.
 configure_docker
 
-image="ci-image:${target_tag}-${makedeb_version}"
+image="ci-image:${makedeb_version}"
 
-target_dockerfile="Dockerfile.${target_tag}"
+target_dockerfile="Dockerfile"
 
 # Setup image.
 echo "[Info] Building '${image}' from '${source_image}'..."
