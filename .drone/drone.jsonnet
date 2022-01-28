@@ -1,4 +1,4 @@
-local buildImage(source_image, target-tag, makedeb_version) = {
+local buildImage(source_image, target_tag, makedeb_version) = {
   name: "build-image-" + target_tag,
   kind: "pipeline",
   type: "docker",
