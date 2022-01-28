@@ -22,7 +22,7 @@ local buildCIImage(source_image, target_tag, makedeb_version) = {
 
 
 [
-  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-alpha", "utests", "alpha"),
-  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-beta", "utests", "beta"),
-  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb", "utests", "stable")
+  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-alpha:ubuntu-latest", "utests", "alpha"),
+  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-beta:ubuntu-latest", "utests", "beta"),
+  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb:ubuntu-latest", "utests", "stable")
 ]
