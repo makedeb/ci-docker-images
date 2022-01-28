@@ -1,8 +1,8 @@
 FROM {{image}}
 
-RUN apt-get update
-RUN apt-get dist-upgrade -y
-RUN apt-get install tzdata git jq sudo sed ubuntu-dev-tools debhelper asciidoctor bats -y
+RUN sudo apt-get update
+RUN sudo apt-get dist-upgrade -y
+RUN sudo apt-get install tzdata git jq sudo sed ubuntu-dev-tools debhelper asciidoctor bats -y
 
 WORKDIR /home/makedeb
 ENTRYPOINT "/bin/bash"
