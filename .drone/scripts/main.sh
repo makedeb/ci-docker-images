@@ -14,10 +14,12 @@ configure_docker
 
 image="ci-image:${target_tag}"
 
+target_dockerfile="Dockerfile.${target_tag}"
+
 # Setup image.
 echo "[Info] Building '${image}' from '${source_image}'..."
 
-if [[ ! -f "${image}" ]]; then
+if [[ ! -f "${target_dockerfile}" ]]; then
   echo "Unable to find dockerfile for ${image}"
   exit 1
 fi
