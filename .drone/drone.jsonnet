@@ -1,5 +1,5 @@
 local buildCIImage(source_image, target_tag, makedeb_version) = {
-  name: "build-ci-image-" + target_tag,
+  name: "build-ci-image-" + target_tag + "-" + makedeb_version,
   kind: "pipeline",
   type: "docker",
   volumes: [{name: "docker", host: {path: "/var/run/docker.sock"}}],
