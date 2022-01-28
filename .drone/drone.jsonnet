@@ -4,7 +4,7 @@ local buildCIImage(source_image, target_tag, makedeb_version) = {
   type: "docker",
   volumes: [{name: "docker", host: {path: "/var/run/docker.sock"}}],
   steps: [{
-    name: "build-and-publish-" + target_tag,
+    name: "build-and-publish-ci-" + target_tag,
     image: "docker",
     volumes: [{name: "docker", path: "/var/run/docker.sock"}],
     environment: {
