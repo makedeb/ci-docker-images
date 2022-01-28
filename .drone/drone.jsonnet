@@ -1,5 +1,5 @@
-local buildImage(source_image, target_tag, makedeb_version) = {
-  name: "build-image-" + target_tag,
+local buildCIImage(source_image, target_tag, makedeb_version) = {
+  name: "build-ci-image-" + target_tag,
   kind: "pipeline",
   type: "docker",
   volumes: [{name: "docker", host: {path: "/var/run/docker.sock"}}],
@@ -22,7 +22,7 @@ local buildImage(source_image, target_tag, makedeb_version) = {
 
 
 [
-  buildImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-alpha", "utests", "alpha"),
-  buildImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-beta", "utests", "beta"),
-  buildImage("proget.hunterwittenborn.com/docker/makedeb/makedeb", "utests", "stable")
+  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-alpha", "utests", "alpha"),
+  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb-beta", "utests", "beta"),
+  buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb", "utests", "stable")
 ]
