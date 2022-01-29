@@ -24,7 +24,7 @@ if [[ ! -f "${target_dockerfile}" ]]; then
   exit 1
 fi
 
-sed -i "1s|{{image}}|${source_image}|" "./${target_dockerfile}"
+sed -i "1s|{{ image }}|${source_image}|" "./${target_dockerfile}"
 
 published_image_path="${proget_server}/docker/makedeb/${image}"
 
