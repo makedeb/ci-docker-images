@@ -2,6 +2,7 @@ local buildCIImage(source_image, makedeb_version) = {
   name: "build-ci-image-" + makedeb_version,
   kind: "pipeline",
   type: "docker",
+  trigger: {branch: ["main"]},
   volumes: [{name: "docker", host: {path: "/var/run/docker.sock"}}],
   steps: [{
     name: "build-and-publish-ci-" + makedeb_version,
@@ -26,3 +27,5 @@ local buildCIImage(source_image, makedeb_version) = {
   buildCIImage("proget.hunterwittenborn.com/docker/makedeb/makedeb:ubuntu-focal", "stable")
 
 ]
+
+// vim: set syntax=typescript ts=4 sw=4 expandtab:

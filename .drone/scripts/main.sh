@@ -33,7 +33,7 @@ docker build --no-cache \
              --pull \
              -t "${published_image_path}" \
              -f "./${target_dockerfile}" \
-             --build-arg "proget_url=${proget_server}" \
+	     --build-arg "hw_url=${hw_url}" \
              ./
 
 docker push "${published_image_path}"
